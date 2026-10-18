@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmi seosed</title>
+</head>
+<body>
+    <h1>Inimeste ja filmide seosed</h1>
+
+    <% if (seosedList.length === 0) { %>
+        <p>Seoseid veel ei ole.</p>
+    <% } else { %>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Inimene</th>
+                    <th>Film</th>
+                    <th>Amet</th>
+                    <th>Tegelase nimi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% seosedList.forEach(seos => { %>
+                    <tr>
+                        <td><%= seos.first_name %> <%= seos.last_name %></td>
+                        <td><%= seos.title %></td>
+                        <td><%= seos.position_name %></td>
+                        <td><%= seos.role || '-' %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+
+    <p><a href="/eestifilm/seos_add">Lisa uus seos</a></p>
+    <p><a href="/eestifilm">Tagasi Eesti filmide avalehele</a></p>
+</body>
+</html>

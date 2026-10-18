@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmi lisamine</title>
+</head>
+<body>
+    <h1>Filmi lisamine</h1>
+
+    <p><%= notice %></p>
+
+    <form action="/eestifilm/movie_add" method="POST">
+        <label for="title">Filmi nimi:</label>
+        <input id="title" name="title" type="text" maxlength="100"
+               required value="<%= title || '' %>">
+        <br><br>
+
+        <label for="length">Filmi pikkus minutites:</label>
+        <input id="length" name="length" type="number" min="1"
+               required value="<%= length || '' %>">
+        <br><br>
+
+        <label for="release_date">Esilinastuse kuupäev:</label>
+        <input id="release_date" name="release_date" type="date"
+               required value="<%= release_date || '' %>">
+        <br><br>
+
+        <button type="submit">Salvesta film</button>
+    </form>
+
+    <p><a href="/eestifilm">Tagasi</a></p>
+</body>
+</html>

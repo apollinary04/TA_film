@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="et">
+<head><meta charset="utf-8"><title>Lisa amet</title></head>
+<body>
+<h1>Lisa amet</h1>
+<a href="/eestifilm">Eesti film</a>
+<hr>
+<form method="POST">
+<label for="professionName">Ameti nimetus</label>
+<input id="professionName" name="professionName" type="text" placeholder="Ameti nimetus" required value="<%= professionName || '' %>">
+<br>
+<label for="description">Kirjeldus</label>
+<textarea id="description" name="description" placeholder="Kirjeldus"></textarea>
+<br>
+<button type="submit">Salvesta</button>
+</form>
+<hr>
+<p><%= notice %></p>
+</body>
+</html>

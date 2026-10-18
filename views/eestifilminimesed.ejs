@@ -1,23 +1,30 @@
 <!DOCTYPE html>
 <html lang="et">
 <head>
-	<meta charset="utf-8">
-	<title>Andrus Rinde, veebiprogrammeerimine</title>
+        <meta charset="utf-8">
+        <title>Filmiga seotud inimesed</title>
 </head>
 <body>
-	<img src="pic/veebiprogrammeerimine_2026_TA.png" alt="">
-	<h1>Eesti filmiga seotud inimesed</h1>
-	<p>Siin lehel on näha Eesti filmiga seotud inimesi.</p>
-	<hr>
-	<ul>
-		<li><a href="/">Avalehele</a></li>
-		<li><a href="/eestifilm">Eesti filmi avaleht</a></li>
-	</ul>
-	<hr>
-	<ol>
-		<% personList.forEach(function(person){%>
-		<li><%= person.first_name %> <%= person.last_name %>, sündinud <%=person.born %></li>
-		<% }); %>
-	</ol>
+        <h1>Filmiga seotud inimesed</h1>
+        <a href="/eestifilm">Eesti film</a>
+        <br>
+        <a href="/eestifilm/inimesed_add">Lisa uus inimene</a>
+        <hr>
+        <table border="1">
+                <tr>
+                        <th>Eesnimi</th>
+                        <th>Perenimi</th>
+                        <th>Sünniaeg</th>
+                        <th>Surmaaeg</th>
+                </tr>
+                <% personList.forEach(function(person){ %>
+                <tr>
+                        <td><%= person.first_name %></td>
+                        <td><%= person.last_name %></td>
+                        <td><%= person.birth_date && !isNaN(person.birth_date.getTime()) ? person.birth_date.toLocaleDateString('et-EE') : '' %></td>
+                        <td><%= person.death_date && !isNaN(person.death_date.getTime()) ? person.death_date.toLocaleDateString('et-EE') : '' %></td>
+                </tr>
+                <% }); %>
+        </table>
 </body>
 </html>

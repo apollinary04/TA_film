@@ -1,0 +1,8 @@
+.env
+node_modules/
+index.js.backup
+index.js.backup2
+index.js.before_fixes
+index.js.before_routes
+before_finish.tar.gz
+index.js.before_visits

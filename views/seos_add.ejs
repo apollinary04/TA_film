@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <title>Seose lisamine</title>
+</head>
+<body>
+    <h1>Inimese ja filmi seose lisamine</h1>
+
+    <p><%= notice %></p>
+
+    <form action="/eestifilm/seos_add" method="POST">
+        <label for="person_id">Inimene:</label>
+        <select name="person_id" id="person_id" required>
+            <% people.forEach(person => { %>
+                <option value="<%= person.id %>">
+                    <%= person.first_name %> <%= person.last_name %>
+                </option>
+            <% }) %>
+        </select>
+
+        <br><br>
+
+        <label for="movie_id">Film:</label>
+        <select name="movie_id" id="movie_id" required>
+            <% movies.forEach(movie => { %>
+                <option value="<%= movie.id %>"><%= movie.title %></option>
+            <% }) %>
+        </select>
+
+        <br><br>
+
+        <label for="position_id">Amet:</label>
+        <select name="position_id" id="position_id" required>
+            <% positions.forEach(position => { %>
+                <option value="<%= position.id %>"><%= position.name %></option>
+            <% }) %>
+        </select>
+
+        <br><br>
+
+        <label for="role">Tegelase nimi (näitlejale):</label>
+        <input type="text" name="role" id="role">
+
+        <br><br>
+
+        <button type="submit">Salvesta seos</button>
+    </form>
+
+    <p><a href="/eestifilm/seosed">Vaata kõiki seoseid</a></p>
+    <p><a href="/eestifilm">Tagasi Eesti filmide avalehele</a></p>
+</body>
+</html>
